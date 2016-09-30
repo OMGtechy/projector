@@ -19,6 +19,35 @@ echo "*.swp
 
 git add .gitignore
 
+echo "language: cpp 
+
+compiler:
+    - gcc
+
+addons:
+    apt:
+        sources:
+            - ubuntu-toolchain-r-test
+            - george-edison55-precise-backports
+        packages:
+            - cmake
+            - cmake-data
+            - g++-5
+            - gcc-5
+
+before_script:
+    - export CXX="g++-5" COMPILER="g++-5" CC="gcc-5"
+    - cd ./test
+    - mkdir ./build
+    - cd ./build
+    - cmake ../ 
+    - make
+
+script: ./$testProjectName
+" > .travis.yml
+
+git add .travis.yml
+
 mkdir include
 mkdir test
 
