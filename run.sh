@@ -41,9 +41,14 @@ before_script:
     - mkdir ./build
     - cd ./build
     - cmake ../ 
-    - make
+    - make -j
 
 script: ./$testProjectName
+
+after_success:
+    - cd CMakeFiles/$testProjectName.dir/source
+    - gcov-5 ./*
+    - bash <(curl -s https://codecov.io/bash) -X gcov
 " > .travis.yml
 
 git add .travis.yml
@@ -87,6 +92,19 @@ SET_PROPERTY(
     APPEND_STRING PROPERTY COMPILE_FLAGS
     \"-Wall -Werror\"
 )
+
+IF(NOT WIN32)
+    TARGET_LINK_LIBRARIES(
+        $testProjectName
+        gcov asan
+    )
+
+    SET_PROPERTY(
+        TARGET $testProjectName
+        APPEND_STRING PROPERTY COMPILE_FLAGS
+        \" -fsanitize=address --coverage\"
+    )
+ENDIF()
 " > CMakeLists.txt
 
 git add CMakeLists.txt
