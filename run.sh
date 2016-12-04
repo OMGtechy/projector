@@ -17,6 +17,7 @@ cd $projectRoot
 
 git init
 git remote add origin https://OMGtechy@github.com/OMGtechy/"$projectRoot"
+curl -u 'OMGtechy' https://api.github.com/user/repos -d "{\"name\":\""$projectRoot"\"}"
 
 echo "*.swp
 " > .gitignore
@@ -140,4 +141,7 @@ cd build
 
 cmake ../ -DCMAKE_BUILD_TYPE=Debug
 make
+
+git commit -m "Initial commit"
+git push -u origin master
 
