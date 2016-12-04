@@ -1,5 +1,8 @@
 #!/bin/sh
 
+sudo apt-get install ruby-dev
+sudo gem install travis
+
 echo "What is the name of your project?"
 read projectName
 
@@ -28,7 +31,11 @@ echo "$readme
 [![codecov](https://codecov.io/gh/OMGtechy/"$projectRoot"/branch/master/graph/badge.svg)](https://codecov.io/gh/OMGtechy/"$projectRoot")
 " > README.md
 
+git add README.md
 git add .gitignore
+
+travis login --org
+travis init cpp
 
 echo "language: cpp 
 
