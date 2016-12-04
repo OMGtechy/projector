@@ -9,13 +9,23 @@ testProjectMainCpp="$testProjectName"_main.cpp
 echo "Where do you want it to live?"
 read projectRoot
 
+echo "What do you want the README to say?"
+read readme
+
 mkdir $projectRoot
 cd $projectRoot
 
 git init
+git remote add origin https://OMGtechy@github.com/OMGtechy/"$projectRoot"
 
 echo "*.swp
 " > .gitignore
+
+echo "$readme
+
+[![Build Status](https://travis-ci.org/OMGtechy/"$projectRoot".svg)](https://travis-ci.org/OMGtechy/"$projectRoot")
+[![codecov](https://codecov.io/gh/OMGtechy/"$projectRoot"/branch/master/graph/badge.svg)](https://codecov.io/gh/OMGtechy/"$projectRoot")
+" > README.md
 
 git add .gitignore
 
