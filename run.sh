@@ -25,6 +25,11 @@ mkdir $projectRoot
 cd $projectRoot
 
 git init
+
+echo "What should the commit email be?"
+read commitEmail
+
+git config user.email $commitEmail
 git remote add origin git@github.com:OMGtechy/"$projectName"
 curl -u 'OMGtechy' https://api.github.com/user/repos -d "{\"name\":\""$projectName"\"}"
 
