@@ -1,6 +1,12 @@
 #!/bin/sh
 
-sudo apt-get install ruby-dev
+if grep -q "Fedora" /etc/redhat-release
+then
+    sudo dnf install ruby-devel redhat-rpm-config
+else
+    sudo apt-get install ruby-dev
+fi
+
 sudo gem install travis
 
 echo "What is the name of your project?"
