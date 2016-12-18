@@ -38,8 +38,8 @@ echo "*.swp
 
 echo "$readme
 
-[![Build Status](https://travis-ci.org/OMGtechy/"$projectRoot".svg)](https://travis-ci.org/OMGtechy/"$projectRoot")
-[![codecov](https://codecov.io/gh/OMGtechy/"$projectRoot"/branch/master/graph/badge.svg)](https://codecov.io/gh/OMGtechy/"$projectRoot")
+[![Build Status](https://travis-ci.org/OMGtechy/"$projectName".svg)](https://travis-ci.org/OMGtechy/"$projectName")
+[![codecov](https://codecov.io/gh/OMGtechy/"$projectName"/branch/master/graph/badge.svg)](https://codecov.io/gh/OMGtechy/"$projectName")
 " > README.md
 
 git add README.md
