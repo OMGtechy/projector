@@ -25,8 +25,8 @@ mkdir $projectRoot
 cd $projectRoot
 
 git init
-git remote add origin https://OMGtechy@github.com/OMGtechy/"$projectRoot"
-curl -u 'OMGtechy' https://api.github.com/user/repos -d "{\"name\":\""$projectRoot"\"}"
+git remote add origin git@github.com:OMGtechy/"$projectName"
+curl -u 'OMGtechy' https://api.github.com/user/repos -d "{\"name\":\""$projectName"\"}"
 
 echo "*.swp
 " > .gitignore
