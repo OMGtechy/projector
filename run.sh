@@ -1,10 +1,22 @@
 #!/bin/sh
 
-if grep -q "Fedora" /etc/redhat-release
+set -x
+
+if command -v dnf
 then
+    echo "Identified Fedora"
     sudo dnf install ruby-devel redhat-rpm-config
-else
+elif command -v apt-get
+then
+    echo "Identified Ubuntu"
     sudo apt-get install ruby-dev
+elif command -v pacman
+then
+    echo "Identified Arch"
+    sudo pacman -Syu ruby cmake
+else
+    echo "Unsupported distro!"
+    exit -1
 fi
 
 sudo gem install travis
