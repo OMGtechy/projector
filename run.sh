@@ -60,7 +60,7 @@ git add .gitignore
 travis login --org
 travis init cpp
 
-echo "language: cpp 
+echo "language: cpp
 
 compiler:
     - gcc
@@ -81,7 +81,7 @@ before_script:
     - cd ./test
     - mkdir ./build
     - cd ./build
-    - cmake ../ 
+    - cmake ../
     - make -j
 
 script: ./$testProjectName
