@@ -9,7 +9,7 @@ then
 elif command -v apt-get
 then
     echo "Identified Ubuntu"
-    sudo apt-get install ruby-dev
+    sudo apt-get install ruby-dev curl
 elif command -v pacman
 then
     echo "Identified Arch"
